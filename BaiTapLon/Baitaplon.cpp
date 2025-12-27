@@ -1,6 +1,6 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include <iostream> // Thu vien nhap xuat (cin, cout)
+#include <vector>     // Thu vien vector (mang dong)
+#include <string>     // Thu vien string
 
 using namespace std;
 
@@ -20,7 +20,7 @@ void inputNotEmpty(string &s, string message) {
 
     do {
         cout << message;
-        getline(cin, s);
+        getline(cin, s); // getline de nhan ca dong (ke ca space)
 
         // Kiem tra chuoi co chi toan dau cach hay khong
         onlySpace = true;
@@ -51,8 +51,8 @@ bool isNumber(string s) {
 
 // Kiem tra ngay sinh dd/MM/yyyy
 bool isValidDate(string s) {
-    if (s.length() != 10) return false;
-    if (s[2] != '/' || s[5] != '/') return false;
+    if (s.length() != 10) return false;  // Do dai phai la 10
+    if (s[2] != '/' || s[5] != '/') return false;  // Vi tri bat buoc la dau '/'
 
     for (int i = 0; i < s.length(); i++) {
         if (i == 2 || i == 5) continue;
@@ -67,13 +67,13 @@ bool isValidDate(string s) {
 class ClassRoomManager : public Manager {
 private:
     struct ClassRoom {
-        string id;
-        string name;
-        string major;
-        string type;
+        string id; // ma lop
+        string name;    // ten lop
+        string major;   // chuyen nganh
+        string type;    // CNTT / Ngoai ngu
     };
 
-    vector<ClassRoom> list;
+    vector<ClassRoom> list;     // Vector chua danh sach lop hoc
 
 public:
     void display() {
@@ -82,7 +82,7 @@ public:
             return;
         }
 
-        for (int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < list.size(); i++) {  // Duyet tung lop trong vector
             cout << list[i].id << " | "
                  << list[i].name << " | "
                  << list[i].major << " | "
@@ -91,7 +91,8 @@ public:
     }
 
     void add() {
-        ClassRoom c;
+        ClassRoom c;  // Tao bien lop tam
+
 
         inputNotEmpty(c.id, "Nhap ma lop: ");
         inputNotEmpty(c.name, "Nhap ten lop: ");
@@ -109,7 +110,7 @@ public:
         } while (c.type.length() == 0 ||
                 (c.type != "CNTT" && c.type != "Ngoai ngu"));
 
-        list.push_back(c);
+        list.push_back(c);  // Dua lop vao vector
         cout << "Them lop thanh cong!\n";
     }
 
@@ -119,7 +120,7 @@ public:
 
         for (int i = 0; i < list.size(); i++) {
             if (list[i].id == id) {
-                list.erase(list.begin() + i);
+                list.erase(list.begin() + i); // Xoa lop
                 cout << "Xoa lop thanh cong!\n";
                 return;
             }
@@ -282,10 +283,10 @@ public:
 };
 
 int main() {
-    ClassRoomManager classMng;
-    StudentManager studentMng;
+    ClassRoomManager classMng; // doi tuong quan ly lop
+    StudentManager studentMng;   // doi tuong quan ly sinh vien
 
-    Manager* manager = NULL; // C++ cu
+    Manager* manager = NULL; // con tro lop cha
 
     int choice;
 
@@ -302,7 +303,7 @@ int main() {
         case 1: manager = &classMng; break;
         case 2: manager = &studentMng; break;
         case 0:
-            cout << "Ket thuc chuong trinh!\n";
+            cout << "Ket thuc chuong trinh!Sayonara!\n";
             return 0;
         default:
             cout << "Lua chon khong hop le!\n";
@@ -328,4 +329,3 @@ int main() {
 
     } while (true);
 }
-
