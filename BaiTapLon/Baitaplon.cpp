@@ -14,30 +14,6 @@ public:
     virtual void update() = 0;
 };
 
-// Nhap chuoi bat buoc khong duoc rong hoac toan dau cach
-void inputNotEmpty(string &s, string message) {
-    bool onlySpace;
-
-    do {
-        cout << message;
-        getline(cin, s); // getline de nhan ca dong (ke ca space)
-
-        // Kiem tra chuoi co chi toan dau cach hay khong
-        onlySpace = true;
-        for (int i = 0; i < s.length(); i++) {
-            if (s[i] != ' ') {
-                onlySpace = false;
-                break;
-            }
-        }
-
-        if (s.length() == 0 || onlySpace) {
-            cout << "Khong duoc de trong!\n";
-        }
-
-    } while (s.length() == 0 || onlySpace);
-}
-
 // Kiem tra chuoi chi chua so
 bool isNumber(string s) {
     if (s.length() == 0) return false;
@@ -329,4 +305,5 @@ int main() {
 
     } while (true);
 }
+
 
