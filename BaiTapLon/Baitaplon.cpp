@@ -32,7 +32,7 @@ void inputNotEmpty(string &s, string message) {
         }
 
         if (s.length() == 0 || onlySpace) {
-            cout << "LOI: Khong duoc de trong hoac chi nhap dau cach!\n";
+            cout << "Khong duoc de trong!\n";
         }
 
     } while (s.length() == 0 || onlySpace);
@@ -329,3 +329,4 @@ int main() {
 
     } while (true);
 }
+
