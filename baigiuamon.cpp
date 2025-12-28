@@ -35,17 +35,13 @@ public:
     }
     
     void printInfo() {
-        cout << "ID: " << id
-             << " - Ten: " << name
-             << " - Luong: " << salary << endl;
+        cout << "ID: " << id   << " - Ten: " << name  << " - Luong: " << salary << endl;
     }
 
-    // Ham lay ma nhan vien
     int getId() {
         return id;
     }
 
-    // Ham cap nhat luong
     void setSalary(float salary) {
         this->salary = salary;
     }
@@ -55,7 +51,7 @@ public:
 class EmployeeManager {     // Lop employeeManager: Dung de quan ly danh sach nhan vien
 private:
     vector<Employee> list;  // Danh sach nhan vien
-    int nextId;             // Ma nhan vien tu dong tang
+    int nextId;             // Ma nhan vien tiep theo
 
 public:
     EmployeeManager() {
